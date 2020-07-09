@@ -5,18 +5,14 @@ import {
   Header,
   Left,
   Body,
-  Right,
   Button,
   Icon,
   Title,
   Content,
-  View,
   Text,
   Card,
   CardItem,
-  Grid,
-  Row,
-  Col
+  H3,
 } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 import { SCLAlert, SCLAlertButton } from "react-native-scl-alert";
@@ -25,7 +21,6 @@ const Rewards = ({ navigation }) => {
   return (
     <Container>
       <ScrollView behaviour="height" style={styles.container}>
-
         <Header>
           <Left>
             <Button transparent onPress={() => navigation.goBack()}>
@@ -37,10 +32,7 @@ const Rewards = ({ navigation }) => {
           </Body>
         </Header>
         <Content>
-        <Grid>
-          <Row>
-            <Col>
-            <Card style={styles.card}>
+          <Card style={styles.card}>
             <CardItem style={styles.cardItemTop}>
               <Body>
                 <Image
@@ -49,16 +41,22 @@ const Rewards = ({ navigation }) => {
                 />
               </Body>
             </CardItem>
+            <CardItem>
+              <Body>
+                <H3>Post your project and Win an iPad!</H3>
+              </Body>
+            </CardItem>
             <CardItem style={styles.cardItemBot}>
-            <Body>
-              <Text style={styles.title}>Win an iPad!</Text>
-                  <Text note>sponsored by RadGrad</Text>
-                </Body>
+              <Left>
+                <Button transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="person" />
+                  <Text>50 participants</Text>
+                </Button>
+              </Left>
             </CardItem>
           </Card>
-            </Col>
-            <Col>
-            <Card style={styles.card}>
+
+          <Card style={styles.card}>
             <CardItem style={styles.cardItemTop}>
               <Body>
                 <Image
@@ -67,19 +65,24 @@ const Rewards = ({ navigation }) => {
                 />
               </Body>
             </CardItem>
-            <CardItem style={styles.cardItemBot}>
+            <CardItem>
               <Body>
-              <Text style={styles.title}>Win CS magazines!</Text>
-                  <Text note>sponsored by RadGrad</Text>
-                </Body>
+                <H3>
+                  Register your club and receive “Careers with Code” magazine.
+                </H3>
+              </Body>
+            </CardItem>
+            <CardItem style={styles.cardItemBot}>
+              <Left>
+                <Button transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="person" />
+                  <Text>50 participants</Text>
+                </Button>
+              </Left>
             </CardItem>
           </Card>
-            </Col>
-          </Row>
 
-          <Row>
-            <Col>
-            <Card style={styles.card}>
+          <Card style={styles.card}>
             <CardItem style={styles.cardItemTop}>
               <Body>
                 <Image
@@ -88,16 +91,22 @@ const Rewards = ({ navigation }) => {
                 />
               </Body>
             </CardItem>
+            <CardItem>
+              <Body>
+                <H3>Win $100 Amazon Gift Card!</H3>
+              </Body>
+            </CardItem>
             <CardItem style={styles.cardItemBot}>
-            <Body>
-              <Text style={styles.title}>Win $100 Amazon Gift Card!</Text>
-                  <Text note>sponsored by RadGrad</Text>
-                </Body>
+              <Left>
+                <Button transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="person" />
+                  <Text>50 participants</Text>
+                </Button>
+              </Left>
             </CardItem>
           </Card>
-            </Col>
-            <Col>
-            <Card style={styles.card}>
+
+          <Card style={styles.card}>
             <CardItem style={styles.cardItemTop}>
               <Body>
                 <Image
@@ -106,17 +115,20 @@ const Rewards = ({ navigation }) => {
                 />
               </Body>
             </CardItem>
-            <CardItem style={styles.cardItemBot}>
+            <CardItem>
               <Body>
-              <Text style={styles.title}>Win CS Books!</Text>
-                  <Text note>sponsored by RadGrad</Text>
-                </Body>
+                <H3>Five lucky winners will receive Computer Science Books.</H3>
+              </Body>
+            </CardItem>
+            <CardItem style={styles.cardItemBot}>
+              <Left>
+                <Button transparent textStyle={{ color: "#87838B" }}>
+                  <Icon name="person" />
+                  <Text>50 participants</Text>
+                </Button>
+              </Left>
             </CardItem>
           </Card>
-            </Col>
-          </Row>
-        </Grid>
-
         </Content>
       </ScrollView>
     </Container>
@@ -132,11 +144,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#dcf0fb",
   },
   cardImage: {
-      height: 150,
-      width: "100%",
-      flex: 1,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
+    height: 150,
+    width: "100%",
+    flex: 1,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
   },
   cardItemTop: {
     paddingTop: 0,
@@ -146,9 +158,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#dcf0fb",
   },
   cardItemBot: {
-    paddingTop: 10,
-    paddingLeft: 10,
+    paddingTop: 0,
+    paddingLeft: 20,
     paddingRight: 10,
+    marginTop: -10,
     borderBottomRightRadius: 20,
     borderBottomLeftRadius: 20,
   },
@@ -159,9 +172,4 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 20,
   },
-  title: {
-    fontSize: 15,
-
-  }
-  
 });

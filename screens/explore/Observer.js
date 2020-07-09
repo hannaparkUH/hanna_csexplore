@@ -5,24 +5,24 @@ import {
   Header,
   Left,
   Body,
-  Right,
   Button,
   Icon,
   Title,
   Content,
   View,
   Text,
-  Card,
-  CardItem,
+  Row,
+  Grid,
+  Col,
 } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
-import { SCLAlert, SCLAlertButton } from "react-native-scl-alert";
+import { WebView } from "react-native-webview";
 
 const Observer = ({ navigation }) => {
   return (
     <Container>
       <ScrollView behaviour="height" style={styles.container}>
-        <Header>
+        <Header style={{ backgroundColor: "#1c2a51" }}>
           <Left>
             <Button transparent onPress={() => navigation.goBack()}>
               <Icon name="arrow-back" />
@@ -33,45 +33,81 @@ const Observer = ({ navigation }) => {
           </Body>
         </Header>
         <Content>
-          <Card style={styles.card}>
-            <CardItem style={styles.cardItemTop}>
-              <Body>
-                <Image
-                  source={require("../../assets/images/hawaiiCS.png")}
-                  style={styles.cardImage}
-                />
-              </Body>
-            </CardItem>
-            <CardItem style={styles.cardItemBot}>
-              <Text style={styles.title}> Why Hawaii needs more CS experts</Text>
-            </CardItem>
-          </Card>
-          <Card style={styles.card}>
-            <CardItem style={styles.cardItemTop}>
-              <Body>
-                <Image
-                  source={require("../../assets/images/piano.png")}
-                  style={styles.cardImage}
-                />
-              </Body>
-            </CardItem>
-            <CardItem style={styles.cardItemBot}>
-              <Text style={styles.title}> CS in other subjects</Text>
-            </CardItem>
-          </Card>
-          <Card style={styles.card}>
-            <CardItem style={styles.cardItemTop}>
-              <Body>
-                <Image
-                  source={require("../../assets/images/careers.png")}
-                  style={styles.cardImage}
-                />
-              </Body>
-            </CardItem>
-            <CardItem style={styles.cardItemBot}>
-              <Text style={styles.title}> CS Careers</Text>
-            </CardItem>
-          </Card>
+          <View></View>
+          <WebView
+            style={{ width: "100%", height: 230 }}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            source={{ uri: "https://www.youtube.com/embed/Tzl0ELY_TiM" }}
+          />
+          <Grid>
+            <Row>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>What is Computer Science?</Text>
+              </Col>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>
+                  Why does Hawaii need more CS experts?
+                </Text>
+              </Col>
+            </Row>
+            <Row>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>Computer Science Careers</Text>
+              </Col>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>
+                  Computer Science in other subjects
+                </Text>
+              </Col>
+            </Row>
+            <Row>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>Computer Science Careers</Text>
+              </Col>
+              <Col
+                style={{
+                  backgroundColor: "#136add",
+                  borderRadius: 20,
+                  margin: 5,
+                }}
+              >
+                <Text style={styles.textBox}>
+                  Computer Science in other subjects
+                </Text>
+              </Col>
+            </Row>
+          </Grid>
         </Content>
       </ScrollView>
     </Container>
@@ -84,14 +120,19 @@ const styles = StyleSheet.create({
   container: {
     margin: 0,
     flex: 1,
-    backgroundColor: "#dcf0fb",
+  },
+  textBox: {
+    color: "#fff",
+    fontSize: 18,
+    padding: 20,
+    height: 120,
   },
   cardImage: {
-      height: 150,
-      width: "100%",
-      flex: 1,
-      borderTopRightRadius: 20,
-      borderTopLeftRadius: 20,
+    height: 150,
+    width: "100%",
+    flex: 1,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
   },
   cardItemTop: {
     paddingTop: 0,
@@ -116,7 +157,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    textAlign: 'center',
-  }
-  
+    textAlign: "center",
+  },
+  WebViewStyle: {
+    margin: 20,
+  },
 });
